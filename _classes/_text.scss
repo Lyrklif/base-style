@@ -1,0 +1,109 @@
+
+$text-color-variants: $full-color-variants;
+$text-size-variants: ( 
+  'xs': $fs-text-xs,
+  'sm': $fs-text-sm,
+  'md': $fs-text-md,
+  'lg': $fs-text-lg,
+);
+$text-ff-variants: (
+  'primary': $ff-primary,
+  'secondary': $ff-secondary,
+);
+$text-weight-variants: (
+  'regular': $fw-regular,
+  'medium': $fw-medium,
+  'semibold': $fw-semibold,
+  'bold': $fw-bold,
+);
+$text-align-variants: [ 'left', 'center', 'right', 'justify', 'start', 'end' ];
+$text-decoration-variants: [ 'underline', 'overline', 'line-through', 'none' ];
+$text-transform-variants: [ 'uppercase', 'lowercase', 'capitalize', 'none' ];
+$text-line-height-simple-variants: [ 'normal', 'inherit', 'initial', 'none' ];
+$text-line-height-variants: (
+  'xs': 18px,
+  'sm': 20px, 
+  'md': 24px, 
+);
+
+
+// @template: <p class="text-color-blue">text</p>
+.text-color {
+  @each $name, $value in $text-color-variants {
+    &-#{$name} {
+      color: #{$value};
+    }
+  }
+}
+
+// @template: <p class="text-ff-secondary">text</p>
+.text-ff {
+  @each $name, $value in $text-ff-variants {
+    &-#{$name} {
+      font-family: #{$value};
+    }
+  }
+}
+
+// @template: <p class="text-weight-bold">text</p>
+.text-weight {
+  @each $name, $value in $text-weight-variants {
+    &-#{$name} {
+      font-weight: #{$value};
+    }
+  }
+}
+
+// @template: <p class="text-align-center">text</p>
+.text-align {
+  @each $value in $text-align-variants {
+    &-#{$value} {
+      text-align: #{$value};
+    }
+  }
+}
+
+// @template: <p class="text-decoration-underline">text</p>
+.text-decoration {
+  @each $value in $text-decoration-variants {
+    &-#{$value} {
+      text-decoration: #{$value};
+    }
+  }
+}
+
+// @template: <p class="text-transform-uppercase">text</p>
+.text-transform {
+  @each $value in $text-transform-variants {
+    &-#{$value} {
+      text-transform: #{$value};
+    }
+  }
+}
+
+// @template: <p class="text-size-md">text</p>
+.text-size {
+  @each $name, $value in $text-size-variants {
+    &-#{$name} {
+      font-size: rem($value);
+
+      // @template: <p class="text-line-height-sm">text</p>
+      &.text-line-height {
+        @each $nameLH, $valueLH in $text-line-height-variants {
+          &-#{$nameLH} {
+            line-height: em($valueLH, $value);
+          }
+        }
+      }
+    }
+  }
+}
+
+// @template: <p class="text-line-height-normal">text</p>
+.text-line-height {
+  @each $value in $text-line-height-simple-variants {
+    &-#{$value} {
+      line-height: #{$value};
+    }
+  }
+}

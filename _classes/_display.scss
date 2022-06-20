@@ -1,0 +1,43 @@
+$display-variants: [ 'block', 'inline-block', 'inline', 'flex', 'inline-flex', 'none' ];
+$align-items-variants: (
+  'start': 'flex-start',
+  'end': 'flex-end',
+  'center': 'center',
+  'baseline': 'baseline',
+  'stretch': 'stretch',
+);
+$justify-content-variants: (
+  'start': 'flex-start',
+  'end': 'flex-end',
+  'center': 'center',
+  'between': 'space-between',
+  'around': 'space-around',
+  'evenly': 'space-evenly',
+);
+
+// @template: <div class="display-block"></div>
+.display {
+  @each $value in $display-variants {
+    &-#{$value} {
+      display: #{$value};
+    }
+  }
+}
+
+// @template: <p class="ai-center">text</p>
+.ai {
+  @each $name, $value in $align-items-variants {
+    &-#{$name} {
+      align-items: #{$value};
+    }
+  }
+}
+
+// @template: <p class="jc-center">text</p>
+.jc {
+  @each $name, $value in $justify-content-variants {
+    &-#{$name} {
+      justify-content: #{$value};
+    }
+  }
+}

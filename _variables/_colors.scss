@@ -1,0 +1,20 @@
+// colors
+
+$black: #041451;
+$white: #FFFFFF;
+$green: #05F1B6;
+$blue: #773BFF;
+$pink: #ED34FF;
+
+
+// color variants
+$full-color-variants: (
+  'current': 'currentColor',
+  'transparent': 'transparent',
+  'inherit': 'inherit',
+  'black': $black, 
+  'white': $white, 
+  'green': $green, 
+  'blue': $blue, 
+  'pink': $pink,
+);

@@ -1,0 +1,11 @@
+$cursor-variants: [ 'auto', 'default', 'pointer', 'wait', 'text', 'not-allowed', 'none' ];
+
+
+// @template: <div class="cursor-pointer"></div>
+.cursor {
+  @each $value in $cursor-variants {
+    &-#{$value} {
+      cursor: #{$value};
+    }
+  }
+}

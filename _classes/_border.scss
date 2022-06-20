@@ -1,0 +1,52 @@
+$rounded-variants: (
+  'none': $border-radius-none,
+  'sm': $border-radius-sm,
+  'md': $border-radius-md,
+  'lg': $border-radius-lg,
+  'full': $border-radius-full,
+);
+$border-color-variants: $full-color-variants;
+$border-width-variants: (
+  '0': 0px,
+  '1': 1px,
+  '2': 2px,
+  '3': 3px,
+);
+$border-style-variants: [ 'solid', 'dashed', 'dotted', 'double', 'hidden', 'none' ];
+
+
+// @template: <div class="rounded-sm"></div>
+.rounded {
+  @each $name, $value in $rounded-variants {
+    &-#{$name} {
+      border-radius: rem($value);
+    }
+  }
+}
+
+// @template: <div class="border-color-grey-1"></div>
+.border-color {
+  @each $name, $value in $border-color-variants {
+    &-#{$name} {
+      border-color: #{$value};
+    }
+  }
+}
+
+// @template: <div class="border-width-1"></div>
+.border-width {
+  @each $name, $value in $border-width-variants {
+    &-#{$name} {
+      border-width: #{$value};
+    }
+  }
+}
+
+// @template: <div class="border-style-solid"></div>
+.border-style {
+  @each $value in $border-style-variants {
+    &-#{$value} {
+      border-style: #{$value};
+    }
+  }
+}

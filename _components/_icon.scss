@@ -1,0 +1,9 @@
+
+// @template: <p class="fill-black">text</p>
+.fill {
+  @each $name, $value in $full-color-variants {
+    &-#{$name} {
+      --fill: #{$value};
+    }
+  }
+}

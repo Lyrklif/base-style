@@ -1,0 +1,67 @@
+$offset-name-variants: (
+  'm': 'margin',
+  'p': 'padding',
+);
+$margin-variants: (
+ '0': 0px,
+ '30': 30px,
+);
+
+
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
+.m-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// @template: <div class="mr-30">text</div>
+// @template: <div class="my-0">text</div>
+// @template: <div class="pr-30">text</div>
+// @template: <div class="p-30">text</div>
+@each $offsetName, $offsetValue in $offset-name-variants {
+  .#{$offsetName} {
+    @each $name, $value in $margin-variants {
+      &-#{$name} {
+        #{$offsetValue}: rem($value);
+      }
+
+      &y {
+        &-#{$name} {
+          #{$offsetValue}-top: rem($value);
+          #{$offsetValue}-bottom: rem($value);
+        }
+      }
+      &x {
+        &-#{$name} {
+          #{$offsetValue}-left: rem($value);
+          #{$offsetValue}-right: rem($value);
+        }
+      }
+      &t {
+        &-#{$name} {
+          #{$offsetValue}-top: rem($value);
+        }
+      }
+      &b {
+        &-#{$name} {
+          #{$offsetValue}-bottom: rem($value);
+        }
+      }
+      &l {
+        &-#{$name} {
+          #{$offsetValue}-left: rem($value);
+        }
+      }
+      &r {
+        &-#{$name} {
+          #{$offsetValue}-right: rem($value);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+$layout-width-property-variants: (
+  'min-w': 'min-width',
+  'max-w': 'max-width',
+  'w': 'width',
+);
+$layout-width-variants: (
+  'xl': 800px,
+  'xxl': 1200px,
+);
+
+
+@each $offsetName, $offsetValue in $layout-width-property-variants {
+  .#{$offsetName} {
+    @each $name, $value in $layout-width-variants {
+      &-#{$name} {
+        #{$offsetValue}: rem($value);
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+$bg-color-variants: $full-color-variants;
+
+
+// @template: <div class="bg-color-grey-5"></div>
+.bg-color {
+  @each $name, $value in $bg-color-variants {
+    &-#{$name} {
+      background-color: #{$value};
+    }
+  }
+}
